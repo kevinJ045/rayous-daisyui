@@ -1,6 +1,6 @@
 {
   "name": "rayous-daisyui",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "keywords": [],
   "files": [
-    "./components",
-    "./index.d.ts",
-    "./package.json",
-    "./index.js"
+    "./package.json"
   ],
+  "bin": {
+    "rayous-daisyui": "./bin/rayous-daisyui.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "daisyui": "^3.9.4",
-    "rayous": "^1.6.7"
+    "commander": "^11.1.0",
+    "daisyui": "^3.9.4"
   }
 }
