@@ -118,8 +118,8 @@ program
 
       if (!content.includes('daisyui')) {
         content = content.replace(
-          'plugins: [',
-          `plugins: [\n    require('daisyui'),`
+          /"plugins"\:\s*\[/,
+          `"plugins": [\n\trequire('daisyui'),`
         );
 
         fs.writeFileSync(tailwindConfigPath, content);
