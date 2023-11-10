@@ -2,8 +2,30 @@
 
 const { Command } = require('commander');
 const fs = require('fs');
+const https = require('https');
 
 const program = new Command();
+
+
+function downloadFile(url, destPath) {
+  return new Promise((resolve, reject) => {
+    const fileStream = fs.createWriteStream(destPath);
+
+    https.get(url, (response) => {
+      response.pipe(fileStream);
+
+      fileStream.on('finish', () => {
+        fileStream.close();
+        resolve();
+      });
+
+      fileStream.on('error', (err) => {
+        fs.unlinkSync(destPath);
+        reject(err);
+      });
+    });
+  });
+}
 
 program
   .command('add [widgets...]')
@@ -20,10 +42,16 @@ program
       }
 
       // Fetch and write the widget content
-      const content = fs.readFileSync(sourceURL, 'utf8');
-      fs.writeFileSync(widgetPath, content);
+      // const content = fs.readFileSync(sourceURL, 'utf8');
+      // fs.writeFileSync(widgetPath, content);
 
-      console.log(`Added ${widget} to components/widget.ts`);
+			downloadFile(sourceURL, widgetPath)
+				.then(() => {
+					console.log(`Added ${widget} to components/${widget}.ts`);
+				})
+				.catch((error) => {
+					console.error(`Error downloading ${widget}: ${error.message}`);
+				});
     }
   });
 
