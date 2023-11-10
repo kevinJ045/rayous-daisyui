@@ -34,7 +34,7 @@ program
     // Implement the add function here
     for (const widget of widgets) {
       const widgetPath = `components/${widget}.ts`;
-      const sourceURL = `https://github.com/kevinJ045/rayous-daisyui/raw/main/components/${widget}.ts`;
+      const sourceURL = `https://raw.githubusercontent.com/kevinJ045/rayous-daisyui/main/components/${widget}.ts`;
 
       // Check if the 'components' directory exists, create if not
       if (!fs.existsSync('components')) {
