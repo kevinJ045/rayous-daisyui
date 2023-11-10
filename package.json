@@ -1,0 +1,22 @@
+{
+  "name": "rayous-daisyui",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "files": [
+    "./components",
+    "./index.d.ts",
+    "./package.json",
+    "./index.js"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "daisyui": "^3.9.4",
+    "rayous": "^1.6.7"
+  }
+}

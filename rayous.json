@@ -1,0 +1,16 @@
+{
+  "title": "App",
+  "meta": {
+    "author": ""
+  },
+  "links": [
+    {
+      "type": "",
+      "link": ""
+    }
+  ],
+  "scripts": [
+    ""
+  ],
+  "envprod": false
+}
