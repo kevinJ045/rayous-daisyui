@@ -1,6 +1,6 @@
 # rayous-daisyui
 
-**rayous-daisyui** is a component loader utility for rayous. It allows you to easily fetch and add components from the rayous-daisyui GitHub repository into your project. It's a handy tool for extending your rayous app with external [daisyui](https://daisyui.com/) components and managing your project's styling.
+**rayous-daisyui** is a component loader utility for [rayous](https://github.com/kevinJ045/guilib). It allows you to easily fetch and add components from the rayous-daisyui GitHub repository into your project. It's a handy tool for extending your rayous app with external [daisyui](https://daisyui.com/) components and managing your project's styling.
 
 ## Table of Contents
 
