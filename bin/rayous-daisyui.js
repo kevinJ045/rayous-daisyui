@@ -55,7 +55,12 @@ function addWidgets(...widgets){
 
       downloadFile(sourceURL, widgetPath)
         .then(() => {
-          console.log(`Added ${widget} to components/${widget}.ts`);
+          if(fs.readFileSync(widgetPath).toString() == '404: Not Found'){
+            fs.unlinkSync(widgetPath);
+            console.error(`Component ${widget} does not exist.`);
+          } else {
+            console.log(`Added ${widget} to components/${widget}.ts`);
+          }
         })
         .catch((error) => {
           console.error(`Error downloading ${widget}: ${error.message}`);
@@ -71,7 +76,7 @@ program
     addWidgets(...widgets);
   });
 
-  program
+program
   .command('list')
   .description('List all components from the repository')
   .action(() => {
