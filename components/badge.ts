@@ -21,7 +21,8 @@ export type badgeSize = 'sm' | 'lg' | 'md' | 'xs' | 'normal';
 
 export interface BadgeOptions extends options {
 	variant?: badgeVariant,
-	badgeSize?: badgeSize
+	badgeSize?: badgeSize,
+	title?: string
 }
 
 const defaultOptions: BadgeOptions = {
