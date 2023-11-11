@@ -47,14 +47,14 @@ export const Badge = Widget.model<BadgeOptions>({
 		variant: {
 			string: {
 				this: {
-					addClass: 'badge--$variant-'
+					addClass: 'badge-$(variant)'
 				}
 			}
 		},
 		badgeSize: {
 			string: {
 				this: {
-					addClass: 'badge--$variant-'
+					addClass: 'badge-$(variant)'
 				}
 			}
 		}

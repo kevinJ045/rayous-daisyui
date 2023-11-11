@@ -1,6 +1,6 @@
 {
   "name": "rayous-daisyui",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^11.1.0",
-    "daisyui": "^3.9.4"
+    "daisyui": "^3.9.4",
+    "rayous": "^1.7.5"
   }
 }

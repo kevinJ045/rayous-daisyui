@@ -37,21 +37,21 @@ export const Loading = Widget.model<LoadingOptions>({
 		color: {
 			string: {
 				this: {
-					addClass: 'text--$color-'
+					addClass: 'text-$(color)'
 				}
 			}
 		},
 		variant: {
 			string: {
 				this: {
-					addClass: 'loading--$variant-'
+					addClass: 'loading-$(variant)'
 				}
 			}
 		},
 		loadingSize: {
 			string: {
 				this: {
-					addClass: 'loading--$variant-'
+					addClass: 'loading-$(variant)'
 				}
 			}
 		}

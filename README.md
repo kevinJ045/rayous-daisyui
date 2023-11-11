@@ -49,12 +49,8 @@ npx rayous-daisyui create
 
 ### Components
 
-You can find available components in the [GitHub repository](https://github.com/kevinJ045/rayous-daisyui/tree/main/components). Choose from the following components:
--  [accordion.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/accordion.ts)
--  [badge.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/badge.ts)
--  [button.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/button.ts)
--  [card.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/card.ts)
--  [dropdown.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/dropdown.ts)
--  [loading.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/loading.ts)
--  [modal.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/modal.ts)
--	[progress.ts](https://github.com/kevinJ045/rayous-daisyui/blob/main/components/progress.ts)
+You can find available components in the [GitHub repository](https://github.com/kevinJ045/rayous-daisyui/tree/main/components). 
+Or you can just list them with:
+```bash
+npx rayous-daisyui list
+```

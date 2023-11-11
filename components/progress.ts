@@ -21,7 +21,7 @@ export const Progress = Widget.model<ProgressOptions>({
 		variant: {
 			string: {
 				this: {
-					addClass: 'progress--$variant-'
+					addClass: 'progress-$(variant)'
 				}
 			}
 		},

@@ -27,10 +27,18 @@ function downloadFile(url, destPath) {
   });
 }
 
-program
-  .command('add [widgets...]')
-  .description('Add widgets to components/widget.ts')
-  .action((widgets) => {
+
+function listAndDownloadAllTSFiles() {
+  listAllTSFiles((files) => {
+    addWidgets(...files.map(file => file.substring(0, file.length-3).split('/').pop()));
+  });
+}
+
+function addWidgets(...widgets){
+  if (widgets.length === 1 && widgets[0] === '*') {
+    // If the argument is "*", list and download all .ts files from the repository
+    listAndDownloadAllTSFiles();
+  } else {
     // Implement the add function here
     for (const widget of widgets) {
       const widgetPath = `components/${widget}.ts`;
@@ -45,15 +53,55 @@ program
       // const content = fs.readFileSync(sourceURL, 'utf8');
       // fs.writeFileSync(widgetPath, content);
 
-			downloadFile(sourceURL, widgetPath)
-				.then(() => {
-					console.log(`Added ${widget} to components/${widget}.ts`);
-				})
-				.catch((error) => {
-					console.error(`Error downloading ${widget}: ${error.message}`);
-				});
+      downloadFile(sourceURL, widgetPath)
+        .then(() => {
+          console.log(`Added ${widget} to components/${widget}.ts`);
+        })
+        .catch((error) => {
+          console.error(`Error downloading ${widget}: ${error.message}`);
+        });
     }
+  }
+}
+
+program
+  .command('add [widgets...]')
+  .description('Add widgets to components/widget.ts')
+  .action((widgets) => {
+    addWidgets(...widgets);
   });
+
+  program
+  .command('list')
+  .description('List all components from the repository')
+  .action(() => {
+    listAllTSFiles((files) => {
+      console.log('List of components:');
+      files.forEach((file) => {
+        console.log(file.substring(0, file.length-3).split('/').pop());
+      });
+    });
+  });
+
+function listAllTSFiles(callback) {
+  const repoURL = 'https://api.github.com/repos/kevinJ045/rayous-daisyui/contents/components';
+  // Fetch the list of .ts files from the repository
+  fetch(repoURL)
+    .then((response) => response.json())
+    .then((fileList) => {
+      const files = fileList.map(file => file.download_url).filter(Boolean);
+      const tsFiles = files.filter((file) => file.endsWith('.ts'));
+
+      if (tsFiles.length > 0) {
+        callback(tsFiles);
+      } else {
+        console.log('No components found in the repository.');
+      }
+    })
+    .catch((error) => {
+      console.error(`Error fetching the list of components: ${error.message}`);
+    });
+}
 
 program
   .command('remove [widgets...]')
